@@ -26,3 +26,15 @@ pip install pandas numpy matplotlib seaborn jupyter
 jupyter notebook   # explore the analysis
 ```
 Open the `.twbx` file in Tableau Desktop for the interactive dashboard.
+
+## Tests and CI
+Data validation tests live in `tests/` and check the bundled 100k-row sample
+(schema, year coverage, delay-cause consistency, route and time fields):
+
+```bash
+pip install -r requirements.txt
+python -m pytest tests/ -q
+```
+
+CI runs on every push and pull request to `main` (Python 3.11): it
+byte-compiles the tests and runs the full suite.
