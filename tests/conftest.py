@@ -4,6 +4,7 @@ Reads the bundled 100k-row sample CSV straight out of the zip in DataSets/
 so no extracted files are left behind on disk.
 """
 import io
+import sys
 import zipfile
 from pathlib import Path
 
@@ -11,6 +12,7 @@ import pandas as pd
 import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT))  # so tests can `import src.analysis`
 ZIP_PATH = REPO_ROOT / "DataSets" / "Pavan_Kalyan_MP4_Sample_100k.csv.zip"
 CSV_NAME = "Pavan_Kalyan_MP4_Sample_100k.csv"
 
